@@ -1,62 +1,65 @@
 package com.trustscore.backend.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class User
-{
-    private String id;
+@Document(collection = "users")  
+public class User {
+
+    @Id
+    private String id; 
+
+    private String userid; 
     private String name;
     private String email;
-    private int creditscore;
-    private double trustscore;
+    private int creditScore;
+    private double trustScore;
 
-
-    public String getId()
-    {
+    public String getId() {
         return id;
     }
 
-    public void setId(String id)
-    {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getName()
-    {
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public void setname(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getemail()
-    {
+    public String getEmail() {
         return email;
     }
 
-    public void setemail(String email)
-    {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public int getCreditScore()
-    {
-        return creditscore;
+    public int getCreditScore() {
+        return creditScore;
     }
 
-    public void setcreditscore(int creditscore)
-    {
-        this.creditscore = creditscore;
+    public void setCreditScore(int creditscore) {
+        this.creditScore = creditscore;
     }
 
-    public double getTrustScore()
-    {
-        return trustscore;
+    public double getTrustScore() {
+        return trustScore;
     }
 
-    public void settrustscore(double trustscore)
-    {
-        this.trustscore = trustscore;
+    public void setTrustScore(double trustscore) {
+        this.trustScore = trustscore;
     }
 }

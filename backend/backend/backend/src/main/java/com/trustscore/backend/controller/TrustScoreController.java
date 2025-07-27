@@ -17,14 +17,16 @@ public class TrustScoreController
     @PostMapping("/trustscore")
     public User getTrustScore(@RequestBody UserIdRequest request)
     {
-        return trustscore.getUserById(request.getUserId());
+        return trustscore.getUserById(request.getUserid());
     }
+
+    
 
     public static class UserIdRequest
     {
         private String userid;
         
-        public String getUserId()
+        public String getUserid()
         {
             return userid;
         }

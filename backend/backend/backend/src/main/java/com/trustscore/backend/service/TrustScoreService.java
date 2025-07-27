@@ -1,16 +1,22 @@
 package com.trustscore.backend.service;
 
 import com.trustscore.backend.model.User;
+import com.trustscore.backend.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TrustScoreService
-{
-    public User getUserById(String userid)
+public class TrustScoreService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    
+    public User getUserById(String userid) 
     {
-        User user = new User();
-        user.setId(userid);
-        user.settrustscore(700);
-        return user;
+        System.out.println("Looking for user with userid: " + userid); 
+        return userRepository.findByUserid(userid).orElse(null);
     }
+
+
 }
