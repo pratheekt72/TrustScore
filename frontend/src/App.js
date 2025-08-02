@@ -16,6 +16,8 @@ function App() {
 
       const data = await response.json();
       updateOutput(JSON.stringify(data, null, 2));
+      console.log("🚀 TrustScore CI/CD works!");
+
     } catch (err) {
       console.error(err);
       updateOutput("Unfortunately, there was trouble connecting to the backend");
@@ -42,7 +44,7 @@ function App() {
         border: "1px solid #ffd700",
       }}>
         <h1 style={{ textAlign: "center", color: "#ffd700", marginBottom: "30px" }}>
-          TrustScore
+          TrustScorE
         </h1>
 
         <div style={{ display: "flex", marginBottom: "20px" }}>
