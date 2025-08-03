@@ -13,12 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Maven
-        uses: s4u/setup-maven-action@v1.3.0
+      - name: Set up Java and Maven
+        uses: actions/setup-java@v3
         with:
-          maven-version: 3.9.5
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
 
-      - name: Build JAR file
+      - name: Build Spring Boot JAR
         run: |
           cd backend/backend/backend
           mvn clean package -DskipTests
