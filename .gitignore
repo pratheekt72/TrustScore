@@ -1,0 +1,7 @@
+﻿target/
+node_modules/
+*.log
+.env
+*.exe
+*.zip
+.DS_Store
