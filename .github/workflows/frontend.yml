@@ -34,6 +34,12 @@ jobs:
         run: aws s3 sync frontend/build/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
 
       - name: Invalidate CloudFront cache
-        run: aws cloudfront create-invalidation \
-          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-          --paths "/*"
+        run: |
+          if [ -z "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
+            echo "❌ CLOUDFRONT_DISTRIBUTION_ID is not set in GitHub Secrets"
+            exit 1
+          fi
+          echo "✅ Using CloudFront Distribution ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
