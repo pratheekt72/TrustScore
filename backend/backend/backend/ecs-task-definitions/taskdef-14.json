@@ -1,0 +1,81 @@
+﻿{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:559050222064:task-definition/trustscore-task:14",
+    "containerDefinitions": [
+        {
+            "name": "backend",
+            "image": "559050222064.dkr.ecr.us-east-1.amazonaws.com/trustscore-backend:v12",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp",
+                    "name": "backend-8080-tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "SPRING_DATA_MONGODB_URI",
+                    "value": "mongodb+srv://your-real-atlas-username:your-real-atlas-password@cluster0.ql0voea.mongodb.net/trustscore?retryWrites=true&w=majority"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/trustscore",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "backend"
+                }
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "trustscore-task",
+    "taskRoleArn": "arn:aws:iam::559050222064:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::559050222064:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 14,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "registeredAt": "2025-08-19T23:06:12.505000-04:00",
+    "registeredBy": "arn:aws:iam::559050222064:user/Pratheekthumm"
+}

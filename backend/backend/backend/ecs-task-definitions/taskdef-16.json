@@ -1,0 +1,97 @@
+﻿{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:559050222064:task-definition/trustscore-task:16",
+    "containerDefinitions": [
+        {
+            "name": "trustscore",
+            "image": "559050222064.dkr.ecr.us-east-1.amazonaws.com/trustscore-backend:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "SERVER_PORT",
+                    "value": "8080"
+                },
+                {
+                    "name": "SERVER_ADDRESS",
+                    "value": "0.0.0.0"
+                },
+                {
+                    "name": "MANAGEMENT_SERVER_PORT",
+                    "value": "8080"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
+                {
+                    "name": "SPRING_DATA_MONGODB_URI",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:559050222064:secret:trustscore/mongoUri-11FRM1"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/trustscore",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "backend"
+                }
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "trustscore-task",
+    "taskRoleArn": "arn:aws:iam::559050222064:role/trustscore-task-role",
+    "executionRoleArn": "arn:aws:iam::559050222064:role/trustscore-exec-role",
+    "networkMode": "awsvpc",
+    "revision": 16,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.secrets.asm.environment-variables"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "registeredAt": "2025-08-20T00:45:39.281000-04:00",
+    "registeredBy": "arn:aws:iam::559050222064:user/Pratheekthumm"
+}
