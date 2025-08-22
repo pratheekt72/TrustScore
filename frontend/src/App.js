@@ -6,7 +6,7 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("https://trustscore.duckdns.org/api/trustscore", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/trustscore`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userid: input }),
@@ -16,8 +16,7 @@ function App() {
 
       const data = await response.json();
       updateOutput(JSON.stringify(data, null, 2));
-      console.log("🚀 TrustScore CI/CD works!");
-
+      console.log("🚀 TrustScore frontend connected to backend!");
     } catch (err) {
       console.error(err);
       updateOutput("Unfortunately, there was trouble connecting to the backend");
