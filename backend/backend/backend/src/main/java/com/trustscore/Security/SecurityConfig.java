@@ -1,4 +1,4 @@
-package com.trustscore.Security;
+package com.trustscore.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,13 +9,14 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
-            .httpBasic(basic -> basic.disable())   // ✅ use different variable name
-            .formLogin(form -> form.disable());    // ✅ disable form login
-
+            .csrf(csrf -> csrf.disable()) // disable CSRF for API
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/eligibility/**").permitAll() // allow loan eligibility
+                .anyRequest().authenticated() // everything else still protected
+            )
+            .httpBasic(); // or JWT later
         return http.build();
     }
 }
