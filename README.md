@@ -105,6 +105,9 @@ docker push <account-id>.dkr.ecr.us-east-1.amazonaws.com/trustscore-backend:late
 - **CSS** – 3.9%  
 - **Dockerfile** – 0.3%  
 
+CloudFront Link:
+
+UI is fully functional but backend services such as AWS ECS and ECR will be terminated so it will no longer which is the purpose of the demo
 
 
 
