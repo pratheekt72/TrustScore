@@ -28,16 +28,13 @@
 
 ---
 
-## Installation & Setup (Local)
+## 🛠️ Installation & Setup (Local)
 
-1. Clone Repository
-   git clone https://github.com/pratheekt72/TrustScore.git
-   cd TrustScore
-2. Backend Setup
-   cd backend
+### 1. Clone Repository
+```bash
+git clone https://github.com/pratheekt72/TrustScore.git
+cd TrustScore
 
-# Build & run Spring Boot
-./mvnw spring-boot:run
 
 
 ---
@@ -81,6 +78,7 @@ Input
 
 Output:
 <img width="1620" height="863" alt="image" src="https://github.com/user-attachments/assets/9b8942f0-652a-42d0-a339-884f82996621" />
+
 
 
 
