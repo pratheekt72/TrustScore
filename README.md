@@ -76,3 +76,11 @@ Pratheek Thummalapalli
 
 📧 pratheekthummalapalli2023@gmail.com
 
+Input
+<img width="1684" height="902" alt="image" src="https://github.com/user-attachments/assets/88ee3e8a-e86f-4288-bf07-c5ba2b1a86f4" />
+
+Output:
+<img width="1620" height="863" alt="image" src="https://github.com/user-attachments/assets/9b8942f0-652a-42d0-a339-884f82996621" />
+
+
+
