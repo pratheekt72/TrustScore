@@ -1,7 +1,5 @@
 # 🚀 TrustScore
 
-**TrustScore** is a full-stack credit scoring web application that predicts loan eligibility based on a user’s past loans and outstanding balances.  # 🚀 TrustScore
-
 TrustScore is a full-stack credit scoring web application that predicts loan eligibility based on a user’s past loans and outstanding balances.  
 
 ⚠️ This is for **demonstration purposes only** and not an official Credit Bureau statement.
@@ -36,6 +34,50 @@ TrustScore is a full-stack credit scoring web application that predicts loan eli
 ```bash
 git clone https://github.com/pratheekt72/TrustScore.git
 cd TrustScore
+
+##  Deployment
+Frontend → AWS S3 + CloudFront
+
+npm run build
+aws s3 sync build/ s3://trustscore-pratheek-frontend
+aws cloudfront create-invalidation --distribution-id E9PTRG8LU6AOE --paths "/*"
+
+Backend → AWS ECS (Fargate)
+
+1. Build Docker image
+docker build -t trustscore-backend .
+
+2.Authenticate & push to Amazon ECR
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <account-id>.dkr.ecr.us-east-1.amazonaws.com
+docker tag trustscore-backend:latest <account-id>.dkr.ecr.us-east-1.amazonaws.com/trustscore-backend:latest
+docker push <account-id>.dkr.ecr.us-east-1.amazonaws.com/trustscore-backend:latest
+
+
+🎥 Demo
+Example Input
+
+User ID: pthumma1
+
+Credit Score: 720
+
+Income: $55,000
+
+Loan Amount: $100,000
+
+Employment Status: Employed
+
+📸 Screenshots:
+
+Input Form
+
+<img width="1684" height="902" alt="image" src="https://github.com/user-attachments/assets/38f5f4de-25d6-4185-9d2c-544a6c016842" />
+
+Output Form
+
+<img width="1620" height="863" alt="image" src="https://github.com/user-attachments/assets/3de572e1-fa51-4a5b-b2c1-679199a9b104" />
+
+
+
 
 
 
