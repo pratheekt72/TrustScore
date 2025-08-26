@@ -81,6 +81,8 @@ docker push <account-id>.dkr.ecr.us-east-1.amazonaws.com/trustscore-backend:late
 **Output Form**  
 <img width="1620" height="863" alt="image" src="https://github.com/user-attachments/assets/3de572e1-fa51-4a5b-b2c1-679199a9b104" />
 
+*The purpose of the screenshots are because it costs money to keep certain important AWS Services for the project to be running 24/7. To
+save money, I took screenshots of when the Project was active and running*
 ---
 
 ## 🚀 **Future Improvements**
@@ -105,9 +107,8 @@ docker push <account-id>.dkr.ecr.us-east-1.amazonaws.com/trustscore-backend:late
 - **CSS** – 3.9%  
 - **Dockerfile** – 0.3%  
 
-CloudFront Link:
 
-UI is fully functional but backend services such as AWS ECS and ECR will be terminated so it will no longer which is the purpose of the demo
+
 
 
 
